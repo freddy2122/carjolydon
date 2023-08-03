@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [CarController::class,'index']);
 
 Route::get('/listing', [CarController::class,'listing']);
+
+Route::get('/testimonials', [CarController::class,'testimonials']);
+
+route::get('/blog', [CarController::class,'blog']);
+
+route::get('/about', [CarController::class,'about']);
+
+route::get('/contact', [CarController::class,'contact']);

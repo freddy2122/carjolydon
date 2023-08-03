@@ -19,4 +19,23 @@ class CarController extends Controller
         return view('listing');
     }
 
+    public function testimonials()
+    {
+        return view('testimonials');
+    }
+
+    public function blog()
+    {
+        return view('blog');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }
