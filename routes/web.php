@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +25,13 @@ route::get('/blog', [CarController::class,'blog']);
 route::get('/about', [CarController::class,'about']);
 
 route::get('/contact', [CarController::class,'contact']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/administer', [App\Http\Controllers\HomeController::class, 'administer']);
+
+Route::get('/layout/admin-index', [AdminController::class,'adminIndex'])->name('layout.admin-index');
+
+Route::get('/adminpages/components-alerts', [AdminController::class,'componentsAlerts'])->name('adminpages.components-alerts');
