@@ -42,4 +42,43 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin()
+    {
+        return $this->role === 'ADMIN';
+    }
+
+    public function isPersonel()
+    {
+        return $this->role === 'PERSONEL';
+    }
+
+    public function isAgent()
+    {
+        return $this->role === 'AGENT';
+    }
+    public function isCommercial()
+    {
+        return $this->role === 'COMMERCIAL';
+    }
+    public function isMecanicien()
+    {
+        return $this->role === 'MECANICIEN';
+    }
+
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class, 'agent_id');
+    }
+
+
+    public function rendezVous()
+{
+    return $this->hasMany(RendezVous::class, 'agent_id');
+}
+
+
+
+
+
 }

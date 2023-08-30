@@ -6,7 +6,9 @@ use App\Models\Carburant;
 use App\Models\Carrosserie;
 use App\Models\Image;
 use App\Models\Transmission;
+use App\Models\User;
 use App\Models\Voitures;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -187,11 +189,11 @@ class AdminController extends Controller
 
 
     public function showDetails(Voitures $voiture)
-{
-    $voiture->load('carrosserie', 'transmission', 'carburant', 'images');
+    {
+        $voiture->load('carrosserie', 'transmission', 'carburant', 'images');
 
-    return view('adminpages.detail-voiture', compact('voiture'));
-}
+        return view('adminpages.detail-voiture', compact('voiture'));
+    }
 
 
 
@@ -255,4 +257,32 @@ class AdminController extends Controller
 
         return redirect()->route('image.store')->with('success', 'Image ajoutée avec succès.');
     }
+
+
+
+    //employés
+
+    public function employes()
+    {
+        $users = User::all();
+        return view('adminpages.employes', compact('users'));
+    }
+    public function updateRole(Request $request, $userId)
+    {
+        $user = User::findOrFail($userId);
+        $user->role = $request->input('role');
+        $user->save();
+
+        return redirect()->route('adminpages.employes')->with('success', 'Rôle utilisateur mis à jour avec succès.');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+
+        return redirect()->route('adminpages.employes')->with('success', 'Utilisateur supprimé avec succès.');
+    }
+
+
+
 }
