@@ -18,6 +18,7 @@
                 <input type="file" name="image" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Ajouter l'image</button>
+            <a href="voitures" class="btn btn-secondary">Retour</a>
         </form>
     </div>
 @endsection

@@ -279,11 +279,7 @@
                         class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="charts-chartjs.html">
-                            <i class="bi bi-circle"></i><span>Bon de commande</span>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="charts-apexcharts.html">
                             <i class="bi bi-circle"></i><span>Echéancier de règlement</span>
